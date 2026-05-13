@@ -2,9 +2,9 @@ services:
   - type: web
     name: samadhan-classifier
     runtime: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install torch==2.1.0 torchvision==0.16.0 --index-url https://download.pytorch.org/whl/cpu && pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     plan: free
     envVars:
       - key: PYTHON_VERSION
-        value: 3.10.0
+        value: 3.11.0
